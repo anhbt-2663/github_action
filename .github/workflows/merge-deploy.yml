@@ -28,7 +28,10 @@ jobs:
       - name: Use yarn for testing
         run: yarn test
 
-      - name: Build and Deploy
+      - name: Use yarn for build
+        run: yarn build
+
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
