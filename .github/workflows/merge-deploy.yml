@@ -28,8 +28,11 @@ jobs:
       - name: Use yarn for testing
         run: yarn test
 
-      - name: deploy to main
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./build
+      - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        BASE_BRANCH: main
+        BRANCH: gh-pages
+        FOLDER: build
+
