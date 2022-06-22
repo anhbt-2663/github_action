@@ -2,7 +2,7 @@
   "name": "github_actions",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://anh-2663.github.io/github_action",
+  "homepage": "https://anh-2663.github.io/github_actions",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
