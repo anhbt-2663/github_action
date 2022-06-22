@@ -29,10 +29,9 @@ jobs:
         run: yarn test
 
       - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        BASE_BRANCH: main
-        BRANCH: gh-pages
-        FOLDER: build
-
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          BASE_BRANCH: main
+          BRANCH: gh-pages
+          FOLDER: build
