@@ -28,7 +28,7 @@ jobs:
       - name: Use yarn for testing
         run: yarn test
 
-      - name: deploy to gh-pages
+      - name: deploy to main
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
