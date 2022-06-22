@@ -1,0 +1,35 @@
+name: Auto deploy after merge
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  auto_deploy_after_merge:
+     name: Auto deploy
+
+    strategy:
+      matrix:
+        runner-os: [ubuntu-latest]
+        node-version: [14.x]
+
+    runs-on: ${{ matrix.runner-os }}
+
+     steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Use yarn for the installation
+        run: yarn install
+
+      - name: Use yarn for testing
+        run: yarn test
+
+      - name: deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build  
